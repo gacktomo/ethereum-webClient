@@ -1,5 +1,11 @@
-//テンプレート「nodeStatusComponent」のテンプレートヘルパー
-//web3オブジェクトのプロパティを取得する各種メソッドを定義。
+import { ReactiveVar } from 'meteor/reactive-var';
+
+Template.nodeStatusComponent.onCreated(function helloOnCreated() {
+  // counter starts at 0
+  this.content = new ReactiveVar(cnt.get(homepage));
+  // this.content = cnt.get(homepage);
+});
+
 Template.nodeStatusComponent.helpers({
 
   //ページ名の取得
@@ -9,9 +15,16 @@ Template.nodeStatusComponent.helpers({
 
   //コンテンツの取得
   htmlContent: function(){
-    var abi_json = JSON.parse(abi);
-    var cnt = web3.eth.contract(abi_json).at(addr);
-    return cnt.get(homepage);
-    //return "<h1>title</h1><p>test</p>";
+    return Template.instance().content.get();
+    //return cnt.get(homepage);
+  }
+});
+
+Template.nodeStatusComponent.events({
+  "submit .pageform": function (event,instance) {
+    event.preventDefault();
+    homepage = event.target.text.value;
+    console.log(homepage);
+    instance.content.set(cnt.get(homepage));
   }
 });
