@@ -1,12 +1,12 @@
 <head>
-  <title>Simple Ether Wallet</title>
+  <title>Ethereum WebBrowser</title>
 </head>
 
 <body>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="/">Simple Ether Wallet</a>
+        <a class="navbar-brand" href="/">Ethereum WebBrowser</a>
       </div>
     </div>
   </nav>
@@ -22,26 +22,15 @@
 
 <template name="nodeStatusComponent">
   <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4>Node Status</h4>
-    </div>
     <table class="table">
       <tbody>
           <tr>
-            <th scope="row">Node</th>
-            <td>{{currentProvider}}</td>
-          </tr>
-          <tr>
-            <th scope="row">Is Mining?</th>
-            <td>{{isMining}}</td>
-          </tr>
-          <tr>
-            <th scope="row">Hashrate</th>
-            <td>{{currentHashrate}}</td>
+            <th scope="row">page name</th>
+            <td>{{pagename}}</td>
           </tr>
           <tr>
             <th scope="row">Content</th>
-            <td>{{htmlContent}}</td>
+            <td id="htmlData" >{{{htmlContent}}}</td>
           </tr>
       </tbody>
     </table>
