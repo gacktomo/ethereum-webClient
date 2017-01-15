@@ -25,6 +25,12 @@ Template.nodeStatusComponent.events({
     event.preventDefault();
     homepage = event.target.text.value;
     console.log(homepage);
-    instance.content.set(cnt.get(homepage));
+
+    var res = cnt.get(homepage);
+    if(res == ''){
+      instance.content.set("<h1>Not found!</h1>");
+    }else{
+      instance.content.set(res);
+    }
   }
 });
