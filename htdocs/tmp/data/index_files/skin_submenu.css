@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+#main {
+	width: 100%;
+}
+.tabset_panel {
+	width: 100%;
+}
+#info {
+	margin: 0 17px 0 10px;
+}
